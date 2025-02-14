@@ -1,7 +1,4 @@
-import java.awt.FlowLayout;
-import java.awt.Checkbox;
-import java.awt.Frame;
-import java.awt.List;
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.WindowEvent;
@@ -17,9 +14,15 @@ public class Vueframe extends Frame implements WindowListener {
 
     public Vueframe()
     {
+
         this.setLayout(new FlowLayout());
-        VuePropositions page = new VuePropositions();
-        Vueclavier clavier = new Vueclavier();
+
+		Vueclavier clavier = new Vueclavier();
+		VuePropositions page = new VuePropositions();
+		this.add(clavier, BorderLayout.WEST);
+		this.add(page, BorderLayout.EAST);
+
+
         
 
 

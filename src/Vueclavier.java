@@ -7,38 +7,19 @@ import java.awt.*;
 
 public class Vueclavier extends Panel {
 
+    private final Color[]  ColorTab = {Color.YELLOW, Color.RED, Color.BLUE, Color.GREEN, Color.MAGENTA,Color.ORANGE,Color.BLACK,Color.WHITE};
+
+    private Button[]  ButtonTab = new Button[ColorTab.length];
 
     public Vueclavier()
     {
-        Button button = new Button();
-        Button button2 = new Button();
-        Button button3 = new Button();
-        Button button4 = new Button();
-        Button button5 = new Button();
-        Button button6 = new Button();
-        Button button7 = new Button();
-        Button button8 = new Button();
+        for(int i =0; i<8;i++) {
 
-        button.setBackground(Color.GRAY);
-        button2.setBackground(Color.BLUE);
-        button3.setBackground(Color.RED);
-        button4.setBackground(Color.GREEN);
-        button5.setBackground(Color.YELLOW);
-        button6.setBackground(Color.BLACK);
-        button7.setBackground(Color.PINK);
-        button8.setBackground(Color.ORANGE);
-        // Set the button position on the frame
-        button.setBounds(150, 130, 25, 25);
-        button2.setBounds(180, 130, 25, 25);
-        button3.setBounds(205, 130, 25, 25);
-        button4.setBounds(230, 130, 25, 25);
-        button5.setBounds(255, 130, 25, 25);
-        button6.setBounds(280, 130, 25, 25);
-        button7.setBounds(305, 130, 25, 25);
-        button8.setBounds(330, 130, 25, 25);
-
-        
-       
+            Button button = new Button();
+            button.setBackground(ColorTab[i]);
+            button.setBounds(150+(30*i), 130, 25, 25);
+            add(button);
+        }
 
         // Add the button to the frame
 

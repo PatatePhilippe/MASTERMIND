@@ -14,9 +14,11 @@ public class VuePropositions extends Canvas implements Observer {
     }
 
     public void paint (Graphics g) {
+
         Graphics2D g2;
         g2 = (Graphics2D) g;
         g2.drawString ("It is a custom canvas area", 70, 70);
+
      }
 
 
