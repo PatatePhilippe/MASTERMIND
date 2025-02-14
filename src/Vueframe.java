@@ -1,4 +1,4 @@
-import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Checkbox;
 import java.awt.Frame;
 import java.awt.List;
@@ -17,15 +17,18 @@ public class Vueframe extends Frame implements WindowListener {
 
     public Vueframe()
     {
-        this.setLayout(new BorderLayout());
+        this.setLayout(new FlowLayout());
         VuePropositions page = new VuePropositions();
         Vueclavier clavier = new Vueclavier();
         
+
+
         this.addWindowListener(this);
 		this.setTitle("Visualisation d'images");
 		this.pack();
 		this.setVisible(true);
         this.add(page, clavier);
+        
     }
 
 
