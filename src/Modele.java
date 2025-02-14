@@ -18,16 +18,33 @@ public class Modele extends Observable {
 
     private Rangee combinaison;
 
+    private Rangee[] Proposition;
+
+
     public Modele(){
         Random rand = new Random();
         this.combinaison=new Rangee();
         while (!this.combinaison.ligneComplete()){
+            System.out.println("test");
             this.combinaison.addJetons(this.ColorTab[rand.nextInt(0,8)]);
+        }
+        this.Proposition= new Rangee[this.tentative];
+        this.Proposition[0]=new Rangee();
+    }
+
+    public Rangee getCombinaison() {
+        return combinaison;
+    }
+    public void addProposition(Color c) {
+        if (this.Proposition[this.Proposition.length-this.tentative].ligneComplete()){
+            this.tentative-=1;
+            this.Proposition[this.Proposition.length-this.tentative]=new Rangee();
+        }else{
+            this.Proposition[this.Proposition.length-this.tentative].addJetons(c);
         }
 
     }
-
-        /*
+    /*
         File fichier = new File("src/images.xml");
         XMLDecoder xmlDecoder = null;
         try{

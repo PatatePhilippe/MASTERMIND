@@ -18,7 +18,7 @@ public class Rangee {
         return !(indiceJeton < Modele.Difficulite);
     }
     public void addJetons(Color addColor ){
-        if (ligneComplete()){
+        if (!ligneComplete()){
             Jetons[indiceJeton] = addColor;
         }
         indiceJeton++;
@@ -31,6 +31,12 @@ public class Rangee {
         }
     }
 
-
-
+    @Override
+    public String toString() {
+        StringBuilder reponse = new StringBuilder();
+        for (int i = 0; i < Jetons.length; i++) {
+            reponse.append(Jetons[i].toString());
+        }
+        return reponse.toString();
+    }
 }
