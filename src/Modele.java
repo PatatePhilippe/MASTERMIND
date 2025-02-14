@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
@@ -7,9 +8,24 @@ import java.util.Random;
 
 public class Modele extends Observable {
 
+    private final Color[]  ColorTab = {Color.YELLOW, Color.RED, Color.BLUE, Color.GREEN, Color.MAGENTA,Color.ORANGE,Color.BLACK,Color.WHITE};
+
+    private int tentative=10;
+
+    public static int Difficulite= 4;
+
+    public enum Etat{gagné,perdu,en_cour};
+
+    private Rangee combinaison;
 
     public Modele(){
+        Random rand = new Random();
+        this.combinaison=new Rangee();
+        while (!this.combinaison.ligneComplete()){
+            this.combinaison.addJetons(this.ColorTab[rand.nextInt(0,8)]);
+        }
 
+    }
 
         /*
         File fichier = new File("src/images.xml");
@@ -36,13 +52,19 @@ public class Modele extends Observable {
 
         */
 
-    }
+
     public void changeImage(int i){
 
         this.setChanged();
         this.notifyObservers();
 
     }
+
+
+
+
+
+
     /*
     public void enregistrer() throws IOException {
         XMLEncoder xmlEncoder = null;
