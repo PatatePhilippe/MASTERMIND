@@ -10,18 +10,32 @@ public class VuePropositions extends Canvas implements Observer {
     public VuePropositions()
     {
         setBackground (Color.GRAY);
-        setSize(800, 500);
+        setSize(600, 500);
     }
 
     public void paint (Graphics g) {
-        int x = 700;
+        int x = 500;
         Graphics2D g2;
         g2 = (Graphics2D) g;
         g2.drawString ("rslt", 70, 70);
+
         for (int i = 0; i< 4; i++)
         {
-            x+=15;
-            g2.drawRect(x, 100, 10, 10);
+            
+            
+            if(i>1)
+            {
+                g.setColor(Color.BLACK);
+                g.fillRect(x, 125, 15, 15);    
+                x-=25;
+            }
+            else {
+                x+=25;
+                g.setColor(Color.WHITE);
+            g.fillRect(x, 100, 15, 15);    
+            }
+                    
+            
         }
         
 
