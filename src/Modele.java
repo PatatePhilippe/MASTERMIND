@@ -43,6 +43,7 @@ public class Modele extends Observable {
         }else{
             this.Proposition[this.Proposition.length-this.tentative].addJetons(c);
             this.Proposition[this.Proposition.length-this.tentative].addResult(this.combinaison.getJetons());
+            this.changeImage();
         }
     }
     /*
@@ -71,19 +72,14 @@ public class Modele extends Observable {
         */
 
 
-    public void changeImage(int i){
+    public void changeImage(){
         this.setChanged();
         this.notifyObservers();
 
     }
 
-    public Color[] getNewProposition(){
-        return this.combinaison.getJetons();
-    }
-    public LinkedList<Integer> getNewResult(){
-        return this.combinaison.getResult();
-    }
-    public Color[][] getOldResult(){
+
+    public Color[][] getProposition(){
         Color[][] result=new Color[this.Proposition.length][4];
         int j=0;
         for(Rangee r:this.Proposition){
@@ -92,7 +88,7 @@ public class Modele extends Observable {
         }
         return result;
     }
-    public Integer[][] getOldProposition(){
+    public Integer[][] getResult(){
         Integer[][] result=new Integer[this.Proposition.length][4];
         int j=0;
         for(Rangee r:this.Proposition){
