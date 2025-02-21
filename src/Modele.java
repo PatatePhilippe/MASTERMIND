@@ -3,6 +3,7 @@ import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Random;
 
@@ -41,8 +42,8 @@ public class Modele extends Observable {
             this.Proposition[this.Proposition.length-this.tentative]=new Rangee();
         }else{
             this.Proposition[this.Proposition.length-this.tentative].addJetons(c);
+            this.Proposition[this.Proposition.length-this.tentative].addResult(this.combinaison.getJetons());
         }
-
     }
     /*
         File fichier = new File("src/images.xml");
@@ -71,17 +72,38 @@ public class Modele extends Observable {
 
 
     public void changeImage(int i){
-
         this.setChanged();
         this.notifyObservers();
 
     }
 
-
-
-
-
-
+    public Color[] getNewProposition(){
+        return this.combinaison.getJetons();
+    }
+    public LinkedList<Integer> getNewResult(){
+        return this.combinaison.getResult();
+    }
+    public Color[][] getOldResult(){
+        Color[][] result=new Color[this.Proposition.length][4];
+        int j=0;
+        for(Rangee r:this.Proposition){
+            j++;
+            result[j]=r.getJetons();
+        }
+        return result;
+    }
+    public Integer[][] getOldProposition(){
+        Integer[][] result=new Integer[this.Proposition.length][4];
+        int j=0;
+        for(Rangee r:this.Proposition){
+            j++;
+            LinkedList<Integer> resultOfThePast=r.getResult();
+            for(int k=0;k<4;k++){
+                result[j][k]=resultOfThePast.get(k);
+            }
+        }
+        return result;
+    }
     /*
     public void enregistrer() throws IOException {
         XMLEncoder xmlEncoder = null;
