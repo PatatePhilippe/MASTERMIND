@@ -5,7 +5,6 @@ import java.awt.event.*;
 
 
 public class VuePropositions extends Canvas implements Observer {
-    
 
     public VuePropositions()
     {
