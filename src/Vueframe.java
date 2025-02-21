@@ -18,10 +18,15 @@ public class Vueframe extends Frame implements WindowListener {
 		this.setSize(800, 700);
 
         this.setLayout(new BorderLayout());
+		Modele model = new Modele();
+		Controleur control = new Controleur(model);
 		Vueclavier clavier = new Vueclavier();
-		VuePropositions page = new VuePropositions();
+		VuePropositions page = new VuePropositions(model);
+		
 		this.add(clavier, BorderLayout.SOUTH);
 		this.add(page, BorderLayout.CENTER);
+
+		
 
 
         
