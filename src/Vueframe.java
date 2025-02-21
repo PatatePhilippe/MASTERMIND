@@ -14,13 +14,14 @@ public class Vueframe extends Frame implements WindowListener {
 
     public Vueframe()
     {
+		
+		this.setSize(800, 700);
 
-        this.setLayout(new FlowLayout());
-
+        this.setLayout(new BorderLayout());
 		Vueclavier clavier = new Vueclavier();
 		VuePropositions page = new VuePropositions();
-		this.add(clavier, BorderLayout.WEST);
-		this.add(page, BorderLayout.EAST);
+		this.add(clavier, BorderLayout.SOUTH);
+		this.add(page, BorderLayout.CENTER);
 
 
         
