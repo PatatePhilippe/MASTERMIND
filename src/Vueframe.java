@@ -20,13 +20,16 @@ public class Vueframe extends Frame implements WindowListener {
         this.setLayout(new BorderLayout());
 		Modele model = new Modele();
 		Controleur control = new Controleur(model);
-		Vueclavier clavier = new Vueclavier();
+		Vueclavier clavier = new Vueclavier(control);
 		VuePropositions page = new VuePropositions(model);
 		
+		
+
+		this.add(page);
+		this.add(clavier);
+		clavier.add(page);
 		this.add(clavier, BorderLayout.SOUTH);
 		this.add(page, BorderLayout.CENTER);
-
-		
 
 
         
@@ -36,7 +39,7 @@ public class Vueframe extends Frame implements WindowListener {
 		this.setTitle("Visualisation d'images");
 		this.pack();
 		this.setVisible(true);
-        this.add(page, clavier);
+
         
     }
 

@@ -22,6 +22,8 @@ public class VuePropositions extends Canvas implements Observer {
         g2 = (Graphics2D) g;
         g2.drawString ("rslt", 70, 70);
 
+    
+
         for (int i = 0; i< 4; i++)
         {
             
