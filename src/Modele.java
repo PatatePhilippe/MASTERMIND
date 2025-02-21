@@ -43,6 +43,7 @@ public class Modele extends Observable {
         }else{
             this.Proposition[this.Proposition.length-this.tentative].addJetons(c);
             this.Proposition[this.Proposition.length-this.tentative].addResult(this.combinaison.getJetons());
+            this.changeImage();
         }
     }
     /*
@@ -71,7 +72,7 @@ public class Modele extends Observable {
         */
 
 
-    public void changeImage(int i){
+    public void changeImage(){
         this.setChanged();
         this.notifyObservers();
 
