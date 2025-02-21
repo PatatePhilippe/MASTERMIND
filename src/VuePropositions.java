@@ -7,6 +7,8 @@ import java.awt.event.*;
 public class VuePropositions extends Canvas implements Observer {
     
     private Modele monModele;
+    private Color[][] col;
+    private Integer[][] rslt;
     public VuePropositions(Modele monModele)
     {
         this.monModele = monModele;
@@ -45,7 +47,8 @@ public class VuePropositions extends Canvas implements Observer {
 
     @Override
 	public void update(Observable o, Object arg) {
-        // this.monModele.();
+        this.col = this.monModele.getProposition();
+        this.rslt = this.monModele.getResult();
 		repaint();
 	}
 }
