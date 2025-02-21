@@ -6,9 +6,10 @@ import java.awt.event.*;
 
 public class VuePropositions extends Canvas implements Observer {
     
-
-    public VuePropositions()
+    private Modele monModele;
+    public VuePropositions(Modele monModele)
     {
+        this.monModele = monModele;
         setBackground (Color.GRAY);
         setSize(600, 500);
     }
@@ -44,6 +45,7 @@ public class VuePropositions extends Canvas implements Observer {
 
     @Override
 	public void update(Observable o, Object arg) {
+        // this.monModele.();
 		repaint();
 	}
 }
