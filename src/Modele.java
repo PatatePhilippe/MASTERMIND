@@ -79,7 +79,7 @@ public class Modele extends Observable {
     }
 
 
-    public Color[][] getResult(){
+    public Color[][] getProposition(){
         Color[][] result=new Color[this.Proposition.length][4];
         int j=0;
         for(Rangee r:this.Proposition){
@@ -88,7 +88,7 @@ public class Modele extends Observable {
         }
         return result;
     }
-    public Integer[][] getProposition(){
+    public Integer[][] getResult(){
         Integer[][] result=new Integer[this.Proposition.length][4];
         int j=0;
         for(Rangee r:this.Proposition){
